@@ -1,4 +1,4 @@
-//The Button Iterator Game Firmware
+//The Button Iterator Game 
 
 #include <avr/io.h>                                                             //Include the AVR i/o library.
 
