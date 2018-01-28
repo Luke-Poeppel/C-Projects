@@ -1,2 +1,2 @@
 # C-Projects
-Simple projects for the ATmega Microcontroller 324p.
+Simple projects for the ATmega 324p
