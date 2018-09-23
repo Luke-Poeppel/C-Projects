@@ -19,11 +19,11 @@ int main(void)
 	DDRD |= 1 << PIND2 | 1 << PIND5 | 1 << PIND7;	// Turn on all functions in the LCD control center (PORTD)
 	_delay_ms(15);
 	
-	SendCommand(0x01);								// Clears the screen
+	SendCommand(0x01);				// Clears the screen
 	_delay_ms(2);
-	SendCommand(0x38);								// Sets LCD to 8-bit, 2 lines
+	SendCommand(0x38);				// Sets LCD to 8-bit, 2 lines
 	_delay_ms(50);
-	SendCommand(0b00001100);						// Turns on the characters (not cursor)
+	SendCommand(0b00001100);			// Turns on the characters (not cursor)
 	_delay_ms(50);
 	
 	SendString("Luke W. Poeppel");					// Sends a string to the LCD using the functions below
