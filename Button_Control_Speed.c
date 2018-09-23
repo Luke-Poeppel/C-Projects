@@ -1,4 +1,4 @@
-// When a button is pressed, change the speed of an LED blink from 10ms to 100ms.
+// When a button is pressed, change the speed of an LED blink from 100ms to 1000ms.
 
 #include <avr/io.h>				// Include neccesary libraries
 #include <util/delay.h>	
