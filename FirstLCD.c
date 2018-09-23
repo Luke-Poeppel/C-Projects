@@ -54,35 +54,35 @@ void BlinkLight()
 // Turn on enable (PIND5) so LCD can concentrate
 // Turn off enable
 {
-	PORTD |= 1 << PIND5;							// Turn on Enable
+	PORTD |= 1 << PIND5;				// Turn on Enable
 	asm volatile ("nop");
 	asm volatile ("nop");
-	PORTD &= ~(1 << PIND5);							// Turn off enable
+	PORTD &= ~(1 << PIND5);				// Turn off enable
 }
 
 void SendCommand(unsigned char command)
 {
 	CheckIfBusy();
-	PORTB = command;								// Set PortB to command
-	PORTD &= ~(1 << PIND7 | 1 << PIND2);			// Turn off Register Select (RS) and Read/Write (RW)
+	PORTB = command;				// Set PortB to command
+	PORTD &= ~(1 << PIND7 | 1 << PIND2);		// Turn off Register Select (RS) and Read/Write (RW)
 	BlinkLight();
-	DDRB = 0;										// Set the Data Direction Register for PortB to 0. 
+	DDRB = 0;					// Set the Data Direction Register for PortB to 0. 
 }
 
 void SendCharacter(unsigned char character)
 {
 	CheckIfBusy();
-	PORTB = character;								// Set PortB to command
-	PORTD &= ~(1 << PIND7);							// Turn off Register Select
-	PORTD |= 1 << PIND2;							// Turn on Read/Write (RW)
+	PORTB = character;				// Set PortB to command
+	PORTD &= ~(1 << PIND7);				// Turn off Register Select
+	PORTD |= 1 << PIND2;				// Turn on Read/Write (RW)
 	BlinkLight();
-	DDRB = 0;										// Set the Data Direction Register for PortB to 0.
+	DDRB = 0;					// Set the Data Direction Register for PortB to 0.
 }
 
 void SendString(char *StringOfCharacters)
 {
 	while (*StringOfCharacters > 0)
 	{
-		SendCharacter(*StringOfCharacters++);		// Sends multiple characters
+		SendCharacter(*StringOfCharacters++);	// Sends multiple characters
 	}
 }
