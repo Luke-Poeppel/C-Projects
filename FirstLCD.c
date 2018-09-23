@@ -26,9 +26,9 @@ int main(void)
 	SendCommand(0b00001100);			// Turns on the characters (not cursor)
 	_delay_ms(50);
 	
-	SendString("Luke W. Poeppel");					// Sends a string to the LCD using the functions below
+	SendString("Luke W. Poeppel");			// Sends a string to the LCD using the functions below
 	
-    while (1)										// Run continuously
+    while (1)						// Run continuously
     {
     }
 }
@@ -39,15 +39,15 @@ void CheckIfBusy()
 // Turn ReadWrite on.
 // 
 {
-	DDRB = 0x00;									// Set PortB to input (data send)
-	PORTD &= ~(1 << PIND2);							// Turn off Register Select (RS)
-	PORTD |= 1 << PIND7;							// Turn on Read/Write (RW)
+	DDRB = 0x00;					// Set PortB to input (data send)
+	PORTD &= ~(1 << PIND2);				// Turn off Register Select (RS)
+	PORTD |= 1 << PIND7;				// Turn on Read/Write (RW)
 	
 	while (PORTB >= 0x80)
 	{
-		BlinkLight();								// "Blink" from sending 5v-0v on Enable
+		BlinkLight();				// "Blink" from sending 5v-0v on Enable
 	}
-	DDRB = 0xFF;									// Set the Data Direction Registry for PortB to output
+	DDRB = 0xFF;					// Set the Data Direction Registry for PortB to output
 }
 
 void BlinkLight()
