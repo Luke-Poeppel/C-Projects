@@ -5,8 +5,8 @@
  * Author : lukepoeppel
  */ 
 
-#include <avr/io.h>					// AVR Library
-#include <stdlib.h>					// Standard Library
+#include <avr/io.h>				// AVR Library
+#include <stdlib.h>				// Standard Library
 #include <avr/interrupt.h>			// Interrupt Library
 #include "LCDControl.h"				// LCD Library
 
