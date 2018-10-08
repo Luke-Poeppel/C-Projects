@@ -24,20 +24,20 @@ int main(void)
 	ADCSRA |= 1 << ADIE;			// Enable the interrupt on the ADC
 	ADCSRA |= 1 << ADEN;			// Enable the ADC!
 	
-	sei();							// Enable interrupts
+	sei();					// Enable interrupts
 	
     while (1) 
     {
     }
 }
 
-ISR(ADC_Vect)						// Interrupt Service Routine
+ISR(ADC_Vect)					// Interrupt Service Routine
 {
-	char adcResult[4];				// 4 digit number for the ADC
+	char adcResult[4];			// 4 digit number for the ADC
 	itoa(ADCH, adcResult, 10);		// Converts ADC Result Value into a string to be sent to LCD
 	GoToCurrLCDLocation(1, 1);		// Find the current location of the LCD
 	SendString(adcResult);			// Send itoa value to LCD
-	SendString(" ");				// Include space as to not have overlap
+	SendString(" ");			// Include space as to not have overlap
 	
 	ADCSRA |= 1 << ADSC;			// Enable the "ADC Start Conversion" Pin
 }
