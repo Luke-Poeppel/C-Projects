@@ -19,8 +19,8 @@ int main(void)
 	// (cont.) "ADEN" : Enable the ADC.
 	
 	ADCSRA |= 1 << ADPS2;			// Enable the Prescalar Selection
-	ADMUX |= 1 << ADLAR;			// Enable the presentation of the ADC on the Multiplexer
-	ADMUX |= 1 << REFS0;			// Enable the voltage selection of the ADC on the Multiplexer
+	ADMUX  |= 1 << ADLAR;			// Enable the presentation of the ADC on the Multiplexer
+	ADMUX  |= 1 << REFS0;			// Enable the voltage selection of the ADC on the Multiplexer
 	ADCSRA |= 1 << ADIE;			// Enable the interrupt on the ADC
 	ADCSRA |= 1 << ADEN;			// Enable the ADC!
 	
